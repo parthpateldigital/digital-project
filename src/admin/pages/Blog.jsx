@@ -79,9 +79,30 @@ export default function Blog() {
     const handleImageChange = (e) => {
         const file = e.target.files[0];
         if (file) {
+            // Validate file size (e.g., 2MB limit)
+            if (file.size > 2 * 1024 * 1024) {
+                addToast('Image size too large! Please use images under 2MB.', 'warning');
+                return;
+            }
+
             const reader = new FileReader();
             reader.onloadend = () => {
-                setImagePreview(reader.result);
+                const img = new Image();
+                img.src = reader.result;
+                img.onload = () => {
+                    const canvas = document.createElement('canvas');
+                    const MAX_WIDTH = 1200;
+                    const scaleSize = MAX_WIDTH / img.width;
+                    canvas.width = MAX_WIDTH;
+                    canvas.height = img.height * scaleSize;
+
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+                    // Compress to JPG with 0.7 quality to save space
+                    const compressedBase64 = canvas.toDataURL('image/jpeg', 0.7);
+                    setImagePreview(compressedBase64);
+                };
             };
             reader.readAsDataURL(file);
         }
@@ -89,7 +110,6 @@ export default function Blog() {
 
     const handleSave = (e, targetStatus) => {
         if (e && e.preventDefault) e.preventDefault();
-        setLoading(true);
 
         const form = document.getElementById('blog-editor-form');
         const formData = new FormData(form);
@@ -97,34 +117,44 @@ export default function Blog() {
         const content = formData.get('content');
         const category = formData.get('category').split(' ')[0];
 
+        if (!title || !content) {
+            addToast('Title and content are required!', 'error');
+            return;
+        }
+
+        setLoading(true);
+
         setTimeout(() => {
+            const postData = {
+                title,
+                category,
+                content,
+                image: imagePreview,
+                status: targetStatus || (currentPost ? currentPost.status : 'Draft'),
+                date: currentPost ? currentPost.date : new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
+                author: currentPost ? currentPost.author : 'Parth Patel',
+                views: currentPost ? currentPost.views : 0,
+            };
+
             if (currentPost) {
-                updatePost({
-                    ...currentPost,
-                    title,
-                    category,
-                    content,
-                    image: imagePreview,
-                    status: targetStatus || currentPost.status
-                });
+                updatePost({ ...currentPost, ...postData });
             } else {
                 const newPost = {
                     id: Date.now().toString(),
-                    title,
-                    content,
-                    author: 'Parth Patel',
-                    category,
-                    status: targetStatus || 'Draft',
-                    date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
-                    views: 0,
-                    image: imagePreview
+                    ...postData
                 };
                 addPost(newPost);
             }
+
             setLoading(false);
             setShowEditor(false);
+            setCurrentPost(null);
+            setImagePreview(null);
             addToast(targetStatus === 'Published' ? 'Article published live!' : (currentPost ? 'Article updated!' : 'New article created!'), 'success');
-        }, 1200);
+
+            // Force scroll to top of list to see changes
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }, 500);
     };
 
     const filteredPosts = posts.filter(p => {

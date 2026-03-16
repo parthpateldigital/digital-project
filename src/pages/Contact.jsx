@@ -1,6 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { Mail, Phone, MapPin, Send, MessageCircle } from 'lucide-react'
+import FAQ from '../components/FAQ'
 
 const Contact = () => {
     const handleSubmit = (e) => {
@@ -29,17 +30,17 @@ Message: ${message}`
                         <motion.h1
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            className="text-4xl md:text-6xl font-bold text-white mb-6"
+                            className="text-4xl md:text-6xl font-black text-white mb-6 uppercase tracking-tight"
                         >
-                            Get In <span className="text-gradient">Touch</span>
+                            Ready to Scale Your <br /><span className="text-gradient">Digital Success?</span>
                         </motion.h1>
                         <motion.p
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.1 }}
-                            className="text-slate-400 text-lg"
+                            className="text-slate-400 text-lg md:text-xl leading-relaxed"
                         >
-                            Have a project in mind? Let's discuss how we can help your business grow digitally.
+                            Whether you're looking to dominate search results, viralize your social presence, or maximize your ROI through precision-targeted ads, we're here to help. Reach out today for a <strong>free audit</strong> and a personalized growth roadmap tailored to your business goals.
                         </motion.p>
                     </div>
 
@@ -79,7 +80,23 @@ Message: ${message}`
                                     </div>
                                     <div>
                                         <h4 className="text-white font-bold text-sm uppercase tracking-wider mb-1">Our Office</h4>
-                                        <p className="text-slate-400">123 Digital Square, Corporate Hub, Ahmedabad, India</p>
+                                        <p className="text-slate-400">Bopal, Ahmedabad, Gujarat, India</p>
+                                    </div>
+                                </div>
+
+                                <div className="pt-8 border-t border-white/5 space-y-4">
+                                    <h4 className="text-white font-bold text-sm uppercase tracking-wider mb-2">Business Hours</h4>
+                                    <div className="flex justify-between items-center text-slate-400 text-sm">
+                                        <span>Monday - Friday</span>
+                                        <span className="text-white font-medium">9:00 AM - 6:00 PM</span>
+                                    </div>
+                                    <div className="flex justify-between items-center text-slate-400 text-sm">
+                                        <span>Saturday</span>
+                                        <span className="text-white font-medium">10:00 AM - 4:00 PM</span>
+                                    </div>
+                                    <div className="flex justify-between items-center text-slate-400 text-sm">
+                                        <span>Sunday</span>
+                                        <span className="text-primary font-medium">Closed</span>
                                     </div>
                                 </div>
 
@@ -88,7 +105,7 @@ Message: ${message}`
                                         href="https://wa.me/917600907141"
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="flex items-center justify-center gap-2 w-full bg-[#25D366] text-white font-bold py-4 rounded-xl hover:opacity-90 transition-opacity"
+                                        className="flex items-center justify-center gap-2 w-full bg-[#25D366] text-white font-bold py-4 rounded-xl hover:opacity-90 transition-opacity whitespace-nowrap"
                                     >
                                         <MessageCircle size={20} />
                                         WhatsApp Us Now
@@ -196,6 +213,7 @@ Message: ${message}`
                     </div>
                 </div>
             </section>
+            <FAQ />
         </div>
     )
 }

@@ -7,19 +7,19 @@ const testimonials = [
         name: 'Rahul Sharma',
         role: 'CEO, TechNova',
         content: 'Parth and his team transformed our online presence. Our traffic increased by 150% in just 3 months!',
-        avatar: 'https://i.pravatar.cc/150?u=rahul'
+        avatar: 'https://images.unsplash.com/photo-1566492031773-4f4e44671857?auto=format&fit=crop&q=150&h=150'
     },
     {
         name: 'Anjali Gupta',
         role: 'Founder, Bloom Decor',
         content: 'The social media strategy they implemented was phenomenal. Engagement and sales are at an all-time high.',
-        avatar: 'https://i.pravatar.cc/150?u=anjali'
+        avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=150&h=150'
     },
     {
         name: 'Vikram Singh',
         role: 'Director, RealEstate Pro',
         content: 'ROI-focused approach is what sets them apart. Best investment for our digital growth.',
-        avatar: 'https://i.pravatar.cc/150?u=vikram'
+        avatar: 'https://images.unsplash.com/photo-1531384441138-2736e62e0919?auto=format&fit=crop&q=150&h=150'
     }
 ]
 

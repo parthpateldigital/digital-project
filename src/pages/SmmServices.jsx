@@ -1,6 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { TrendingUp, Users, MessageSquare, Zap, Target, CheckCircle } from 'lucide-react'
+import FAQ from '../components/FAQ'
 import FinalCTA from '../components/FinalCTA'
 
 const smmFeatures = [
@@ -102,8 +103,8 @@ const SmmServices = () => {
                             className="relative p-2 glass-card rounded-2xl border-white/10"
                         >
                             <img
-                                src="https://images.unsplash.com/photo-1557838923-2985c318be48?auto=format&fit=crop&q=80&w=1200"
-                                alt="Social Media Marketing"
+                                src="/images/smm-global-strategy.jpg"
+                                alt="Scalable Brand Dominance"
                                 className="rounded-xl w-full"
                                 loading="lazy"
                             />
@@ -131,6 +132,144 @@ const SmmServices = () => {
                 </div>
             </section>
 
+            {/* Funnel Section */}
+            <section className="py-24 bg-dark border-t border-white/5 relative overflow-hidden">
+                <div className="container mx-auto px-4 md:px-6 relative z-10">
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">The <span className="text-primary italic">SMM Growth</span> Funnel</h2>
+                        <p className="text-slate-400">How we turn scrolling strangers into loyal customers.</p>
+                    </div>
+
+                    <div className="max-w-4xl mx-auto space-y-4">
+                        {[
+                            { title: 'Awareness', desc: 'Eye-catching viral content and influencer shoutouts to gather massive attention.' },
+                            { title: 'Consideration', desc: 'Retargeting ads and high-value educational content to build trust and authority.' },
+                            { title: 'Conversion', desc: 'Direct response ads and limited-time offers to drive sales and sign-ups.' },
+                            { title: 'Retention', desc: 'Community engagement and exclusive loyalty content to turn customers into brand advocates.' }
+                        ].map((step, i) => (
+                            <motion.div
+                                key={i}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: i * 0.1 }}
+                                className="p-8 glass-card rounded-2xl border-white/10 flex flex-col md:flex-row gap-6 items-center md:items-start group hover:bg-white/5 transition-all"
+                            >
+                                <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white font-black text-xl flex-shrink-0 group-hover:scale-110 transition-transform">
+                                    {i + 1}
+                                </div>
+                                <div className="text-center md:text-left">
+                                    <h4 className="text-xl font-bold text-white mb-2">{step.title}</h4>
+                                    <p className="text-slate-400 leading-relaxed">{step.desc}</p>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+                <div className="absolute top-1/2 right-0 w-1/3 h-1/2 bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
+            </section>
+
+            {/* SMM Packages Section */}
+            <section className="py-24 bg-dark">
+                <div className="container mx-auto px-4 md:px-6">
+                    <div className="text-center mb-16">
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            className="inline-block px-4 py-1.5 mb-6 rounded-full bg-white/5 border border-white/10 text-slate-300 text-sm font-bold uppercase tracking-widest"
+                        >
+                            Growth Plans
+                        </motion.div>
+                        <motion.h2
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.1 }}
+                            className="text-3xl md:text-5xl font-black text-white mb-6 uppercase tracking-tight"
+                        >
+                            SMM <span className="text-gradient">Packages</span>
+                        </motion.h2>
+                        <motion.p
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.2 }}
+                            className="text-slate-400 max-w-2xl mx-auto text-lg"
+                        >
+                            Choose the social media growth package that fits your business needs. Custom enterprise plans available.
+                        </motion.p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                        {/* Basic Plan */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.1 }}
+                            className="glass-card p-8 rounded-3xl border border-white/10 hover:border-primary/50 transition-all flex flex-col"
+                        >
+                            <h3 className="text-2xl font-bold text-white mb-2">Growth Starter</h3>
+                            <p className="text-slate-400 text-sm mb-8">Perfect for small businesses establishing a presence.</p>
+                            <ul className="space-y-4 mb-8 flex-grow">
+                                {['12 Custom Posts/Month', '2 Platforms (FB & Insta)', 'Basic Community Management', 'Monthly Analytics Report', 'Profile Optimization'].map((item, i) => (
+                                    <li key={i} className="flex gap-3 text-slate-300 text-sm">
+                                        <CheckCircle size={18} className="text-primary flex-shrink-0" />
+                                        <span>{item}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                            <a href="/contact" className="btn-gradient w-full py-3 rounded-xl text-center font-bold">Choose Plan</a>
+                        </motion.div>
+
+                        {/* Pro Plan */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.2 }}
+                            className="glass-card p-8 rounded-3xl border-2 border-primary relative flex flex-col transform md:-translate-y-4 shadow-2xl shadow-primary/20"
+                        >
+                            <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-primary to-blue-600 text-white text-xs font-black px-4 py-1 rounded-full uppercase tracking-widest">Most Popular</div>
+                            <h3 className="text-2xl font-bold text-white mb-2">Social Dominance</h3>
+                            <p className="text-slate-400 text-sm mb-8">For brands ready to scale and convert followers to sales.</p>
+                            <ul className="space-y-4 mb-8 flex-grow">
+                                {['20 Custom Posts/Month', '4 Reels/Shorts Editing', '3 Platforms Management', 'Ad Campaign Setup (Spend extra)', 'Competitor Analysis', 'Weekly Analytics Report'].map((item, i) => (
+                                    <li key={i} className="flex gap-3 text-white text-sm">
+                                        <CheckCircle size={18} className="text-primary flex-shrink-0" />
+                                        <span>{item}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                            <a href="/contact" className="bg-white text-slate-900 hover:bg-slate-200 w-full py-3 rounded-xl text-center font-bold transition-colors">Choose Plan</a>
+                        </motion.div>
+
+                        {/* Enterprise Plan */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.3 }}
+                            className="glass-card p-8 rounded-3xl border border-white/10 hover:border-primary/50 transition-all flex flex-col"
+                        >
+                            <h3 className="text-2xl font-bold text-white mb-2">Custom Enterprise</h3>
+                            <p className="text-slate-400 text-sm mb-8">Complete digital ecosystem management for established brands.</p>
+                            <ul className="space-y-4 mb-8 flex-grow">
+                                {['Daily Content Posting', 'Unlimited Graphics & Reels', 'All Platforms Managed', 'Dedicated Account Manager', 'Advanced Pixel & Conversion Tracking', 'Custom Influencer Campaigns'].map((item, i) => (
+                                    <li key={i} className="flex gap-3 text-slate-300 text-sm">
+                                        <CheckCircle size={18} className="text-primary flex-shrink-0" />
+                                        <span>{item}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                            <a href="/contact" className="bg-white/10 hover:bg-white/20 border border-white/20 text-white w-full py-3 rounded-xl text-center font-bold transition-all">Contact Us</a>
+                        </motion.div>
+                    </div>
+                </div>
+            </section>
+
+            <FAQ />
             <FinalCTA />
         </div>
     )

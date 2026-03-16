@@ -1,6 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { Key, Layout, PenTool, Link2, FileImage, CheckCircle } from 'lucide-react'
+import FAQ from '../components/FAQ'
 import FinalCTA from '../components/FinalCTA'
 
 const seoFeatures = [
@@ -132,6 +133,181 @@ const SeoServices = () => {
                 </div>
             </section>
 
+            {/* Off-Page & Local SEO Section */}
+            <section className="py-24 bg-dark border-t border-white/5">
+                <div className="container mx-auto px-4 md:px-6">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            className="relative lg:order-1 order-2"
+                        >
+                            <div className="absolute -inset-4 bg-primary/20 blur-3xl rounded-full pointer-events-none" />
+                            <div className="glass-card p-8 rounded-3xl border border-white/10 relative z-10 space-y-6">
+                                <div className="flex items-center gap-4 bg-white/5 p-4 rounded-xl">
+                                    <div className="w-12 h-12 bg-green-500/20 text-green-400 flex items-center justify-center rounded-lg font-bold text-xl">
+                                        DA
+                                    </div>
+                                    <div>
+                                        <h4 className="text-white font-bold">Domain Authority Increased</h4>
+                                        <p className="text-slate-400 text-sm">High-quality backlinks acquired organically</p>
+                                    </div>
+                                </div>
+                                <div className="flex items-center gap-4 bg-white/5 p-4 rounded-xl">
+                                    <div className="w-12 h-12 bg-blue-500/20 text-blue-400 flex items-center justify-center rounded-lg font-bold text-xl">
+                                        PR
+                                    </div>
+                                    <div>
+                                        <h4 className="text-white font-bold">Digital PR Mentions</h4>
+                                        <p className="text-slate-400 text-sm">Featured on top authority niche websites</p>
+                                    </div>
+                                </div>
+                                <div className="flex items-center gap-4 bg-white/5 p-4 rounded-xl">
+                                    <div className="w-12 h-12 bg-purple-500/20 text-purple-400 flex items-center justify-center rounded-lg font-bold text-xl">
+                                        GMB
+                                    </div>
+                                    <div>
+                                        <h4 className="text-white font-bold">Local SEO Dominance</h4>
+                                        <p className="text-slate-400 text-sm">Google My Business Map Pack optimization</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </motion.div>
+
+                        <motion.div
+                            initial={{ opacity: 0, x: 30 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            className="space-y-8 lg:order-2 order-1"
+                        >
+                            <h2 className="text-3xl md:text-5xl font-bold text-white">
+                                Off-Page & <span className="text-primary italic">Local SEO</span>
+                            </h2>
+                            <p className="text-slate-400 text-lg">
+                                Website authority is built outside your own domain. We implement rigorous, white-hat link-building strategies and local SEO tactics to signal absolute trust and relevance to Google.
+                            </p>
+
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                {[
+                                    { title: 'Link Building', desc: 'Earning high-quality, relevant backlinks from authoritative websites.' },
+                                    { title: 'Digital PR', desc: 'Creating linkable assets that naturally attract brand mentions.' },
+                                    { title: 'Local Citations', desc: 'Consistent business NAP listings across key local directories.' },
+                                    { title: 'GMB Setup', desc: 'Ranking your Google Maps profile for hyper-local searches.' }
+                                ].map((item, i) => (
+                                    <div key={i} className="p-6 bg-slate-900/50 rounded-2xl border border-white/5 hover:border-primary/30 transition-all group">
+                                        <h4 className="text-white font-bold mb-2 group-hover:text-primary transition-colors">{item.title}</h4>
+                                        <p className="text-slate-500 text-sm leading-relaxed">{item.desc}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </motion.div>
+                    </div>
+                </div>
+            </section>
+
+            {/* SEO Solutions Section */}
+            <section className="py-24 bg-dark">
+                <div className="container mx-auto px-4 md:px-6">
+                    <div className="text-center mb-16">
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            className="inline-block px-4 py-1.5 mb-6 rounded-full bg-white/5 border border-white/10 text-slate-300 text-sm font-bold uppercase tracking-widest"
+                        >
+                            Our Mastery
+                        </motion.div>
+                        <motion.h2
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.1 }}
+                            className="text-3xl md:text-5xl font-black text-white mb-6 uppercase tracking-tight"
+                        >
+                            Strategic <span className="text-gradient">SEO Solutions</span>
+                        </motion.h2>
+                        <motion.p
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.2 }}
+                            className="text-slate-400 max-w-2xl mx-auto text-lg"
+                        >
+                            Tailored search engine strategies designed to grow your authority and dominate your niche.
+                        </motion.p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                        {/* Tier 1 */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.1 }}
+                            className="glass-card p-8 rounded-3xl border border-white/10 hover:border-primary/50 transition-all flex flex-col"
+                        >
+                            <h3 className="text-2xl font-bold text-white mb-2">Local Dominance</h3>
+                            <p className="text-slate-400 text-sm mb-8">Perfect for local businesses wanting to rank in their city.</p>
+                            <ul className="space-y-4 mb-8 flex-grow">
+                                {['Google My Business Optimization', 'Local Keyword Targeting', 'City-Specific Landing Pages', 'Niche Directory Citations', 'Monthly Performance Report'].map((item, i) => (
+                                    <li key={i} className="flex gap-3 text-slate-300 text-sm">
+                                        <CheckCircle size={18} className="text-primary flex-shrink-0" />
+                                        <span>{item}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                            <a href="/contact" className="btn-gradient w-full py-3 rounded-xl text-center font-bold">Inquire Now</a>
+                        </motion.div>
+
+                        {/* Tier 2 */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.2 }}
+                            className="glass-card p-8 rounded-3xl border-2 border-primary relative flex flex-col transform md:-translate-y-4 shadow-2xl shadow-primary/20"
+                        >
+                            <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-primary to-blue-600 text-white text-xs font-black px-4 py-1 rounded-full uppercase tracking-widest">Most Popular</div>
+                            <h3 className="text-2xl font-bold text-white mb-2">National Growth</h3>
+                            <p className="text-slate-400 text-sm mb-8">Scale your brand across the entire country.</p>
+                            <ul className="space-y-4 mb-8 flex-grow">
+                                {['Comprehensive Technical Audit', 'High-Authority Backlink Building', 'E-E-A-T Content Strategy', 'Competitor Intelligence Gap Analysis', 'Schema Markup Optimization', 'Bi-Weekly Strategy Calls'].map((item, i) => (
+                                    <li key={i} className="flex gap-3 text-white text-sm">
+                                        <CheckCircle size={18} className="text-primary flex-shrink-0" />
+                                        <span>{item}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                            <a href="/contact" className="bg-white text-slate-900 hover:bg-slate-200 w-full py-3 rounded-xl text-center font-bold transition-colors">Select Plan</a>
+                        </motion.div>
+
+                        {/* Tier 3 */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.3 }}
+                            className="glass-card p-8 rounded-3xl border border-white/10 hover:border-primary/50 transition-all flex flex-col"
+                        >
+                            <h3 className="text-2xl font-bold text-white mb-2">Global Authority</h3>
+                            <p className="text-slate-400 text-sm mb-8">Multi-country SEO for international market leadership.</p>
+                            <ul className="space-y-4 mb-8 flex-grow">
+                                {['Multilingual SEO Implementation', 'Global Link Building Campaigns', 'Advanced Log File Analysis', 'Conversion Rate Optimization (CRO)', 'Dedicated SEO Consultant', 'Custom ROI Dashboard'].map((item, i) => (
+                                    <li key={i} className="flex gap-3 text-slate-300 text-sm">
+                                        <CheckCircle size={18} className="text-primary flex-shrink-0" />
+                                        <span>{item}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                            <a href="/contact" className="bg-white/10 hover:bg-white/20 border border-white/20 text-white w-full py-3 rounded-xl text-center font-bold transition-all">Contact Us</a>
+                        </motion.div>
+                    </div>
+                </div>
+            </section>
+
+
+            <FAQ />
             <FinalCTA />
         </div>
     )

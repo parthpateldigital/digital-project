@@ -3,9 +3,11 @@ import Hero from '../components/Hero'
 import ServicesGrid from '../components/ServicesGrid'
 import WhyChooseUs from '../components/WhyChooseUs'
 import Results from '../components/Results'
+import BlogPreview from '../components/BlogPreview'
 import Testimonials from '../components/Testimonials'
 import FAQ from '../components/FAQ'
 import FinalCTA from '../components/FinalCTA'
+import Process from '../components/Process'
 import { motion } from 'framer-motion'
 
 const Home = () => {
@@ -18,10 +20,12 @@ const Home = () => {
         >
             <Hero />
             <ServicesGrid />
+            <Process />
             <WhyChooseUs />
             <Results />
+            <BlogPreview />
             <Testimonials />
-            <FAQ />
+            <FAQ limit={8} />
             <FinalCTA />
         </motion.div>
     )

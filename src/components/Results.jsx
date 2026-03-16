@@ -3,8 +3,8 @@ import { motion } from 'framer-motion'
 import { UserCheck, Rocket, Zap, Globe } from 'lucide-react'
 
 const stats = [
-    { label: 'Happy Clients', value: '200+', icon: UserCheck },
-    { label: 'Campaigns Done', value: '500+', icon: Rocket },
+    { label: 'Happy Clients', value: '5+', icon: UserCheck },
+    { label: 'Campaigns Done', value: '100+', icon: Rocket },
     { label: 'Traffic Generated', value: '1M+', icon: Globe },
     { label: 'Positive ROI', value: '98%', icon: Zap },
 ]

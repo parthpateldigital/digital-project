@@ -6,23 +6,26 @@ const Footer = () => {
     const currentYear = new Date().getFullYear()
 
     return (
-        <footer className="bg-slate-950 pt-12 pb-8 border-t border-white/5">
-            <div className="container mx-auto px-4 md:px-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-10">
+        <footer className="relative bg-slate-950 pt-16 pb-6 border-t border-white/10 overflow-hidden z-10">
+            {/* Background Glows */}
+            <div className="absolute top-0 left-[20%] w-[30%] h-[30%] bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
+            <div className="absolute bottom-0 right-[10%] w-[20%] h-[40%] bg-blue-600/5 rounded-full blur-[80px] pointer-events-none" />
+
+            <div className="container mx-auto px-4 md:px-6 relative z-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
                     {/* Brand Column */}
-                    <div className="space-y-4">
-                        <Link to="/" className="flex flex-col">
-                            <span className="text-2xl font-bold tracking-tight text-white uppercase">
-                                Digital <span className="text-gradient italic">Parth Patel</span>
-                            </span>
-                            <span className="text-[10px] text-slate-400 font-medium tracking-[0.2em] uppercase">
-                                Grow Your Business Digitally
-                            </span>
+                    <div className="space-y-6 lg:pr-6">
+                        <Link to="/" className="inline-block hover:opacity-80 transition-opacity">
+                            <img
+                                src="/images/logo.png"
+                                alt="Digital Parth Patel Logo"
+                                className="h-16 md:h-20 w-auto object-contain invert hue-rotate-180 brightness-125 mix-blend-screen"
+                            />
                         </Link>
-                        <p className="text-slate-400 text-sm leading-relaxed">
+                        <p className="text-slate-400 text-sm leading-relaxed font-light">
                             We help businesses transform their digital presence and achieve sustainable growth through ROI-driven marketing strategies.
                         </p>
-                        <div className="flex space-x-4">
+                        <div className="flex gap-3">
                             {[
                                 { icon: Facebook, name: 'Facebook', url: 'https://www.facebook.com/digitalparthpatel19/' },
                                 { icon: Instagram, name: 'Instagram', url: 'https://www.instagram.com/digitalparthpatel/' },
@@ -42,29 +45,29 @@ const Footer = () => {
                     </div>
 
                     {/* Quick Links */}
-                    <div className="space-y-4">
+                    <div className="space-y-6">
                         <h4 className="text-lg font-bold text-white uppercase tracking-wider">Services</h4>
                         <ul className="space-y-2">
                             <li>
-                                <Link to="/seo-services" className="text-slate-400 hover:text-primary transition-colors text-sm flex items-center gap-2 group">
+                                <Link to="/services/Search-Engine-Optimization" className="text-slate-400 hover:text-primary transition-colors text-sm flex items-center gap-2 group">
                                     <ExternalLink size={12} className="opacity-0 group-hover:opacity-100 transition-opacity" />
                                     SEO
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/smo-services" className="text-slate-400 hover:text-primary transition-colors text-sm flex items-center gap-2 group">
+                                <Link to="/services/Social-Media-Optimization" className="text-slate-400 hover:text-primary transition-colors text-sm flex items-center gap-2 group">
                                     <ExternalLink size={12} className="opacity-0 group-hover:opacity-100 transition-opacity" />
                                     SMO
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/smm-services" className="text-slate-400 hover:text-primary transition-colors text-sm flex items-center gap-2 group">
+                                <Link to="/services/Social-Media-Marketing" className="text-slate-400 hover:text-primary transition-colors text-sm flex items-center gap-2 group">
                                     <ExternalLink size={12} className="opacity-0 group-hover:opacity-100 transition-opacity" />
                                     SMM
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/ppc-services" className="text-slate-400 hover:text-primary transition-colors text-sm flex items-center gap-2 group">
+                                <Link to="/services/Pay-Per-Click-Advertising" className="text-slate-400 hover:text-primary transition-colors text-sm flex items-center gap-2 group">
                                     <ExternalLink size={12} className="opacity-0 group-hover:opacity-100 transition-opacity" />
                                     PPC
                                 </Link>
@@ -73,7 +76,7 @@ const Footer = () => {
                     </div>
 
                     {/* Company */}
-                    <div className="space-y-4">
+                    <div className="space-y-6">
                         <h4 className="text-lg font-bold text-white uppercase tracking-wider">Company</h4>
                         <ul className="space-y-2">
                             {['About', 'Blog', 'Contact'].map((item) => (
@@ -87,7 +90,7 @@ const Footer = () => {
                     </div>
 
                     {/* Contact Info */}
-                    <div className="space-y-4">
+                    <div className="space-y-6">
                         <h4 className="text-lg font-bold text-white uppercase tracking-wider">Contact</h4>
                         <ul className="space-y-2">
                             <li className="flex items-center gap-3 text-slate-400 text-sm">
@@ -100,20 +103,20 @@ const Footer = () => {
                             </li>
                             <li className="flex items-start gap-3 text-slate-400 text-sm">
                                 <MapPin size={16} className="text-primary mt-1 flex-shrink-0" />
-                                <span>Ahmedabad, Gujarat, India</span>
+                                <span>Bopal, Ahmedabad, Gujarat, India</span>
                             </li>
                         </ul>
                     </div>
                 </div>
 
-                <div className="pt-6 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
-                    <p className="text-slate-500 text-xs">
+                <div className="pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p className="text-slate-400 text-xs">
                         © {currentYear} Digital Parth Patel. All rights reserved.
                     </p>
                     <div className="flex gap-8">
-                        <a href="#" className="text-slate-500 hover:text-primary text-xs transition-colors">Privacy Policy</a>
-                        <a href="#" className="text-slate-500 hover:text-primary text-xs transition-colors">Terms of Service</a>
-                        <a href="#" className="text-slate-500 hover:text-primary text-xs transition-colors">Cookie Policy</a>
+                        <Link to="/privacy-policy" className="text-slate-500 hover:text-primary text-xs transition-colors">Privacy Policy</Link>
+                        <Link to="/terms-of-service" className="text-slate-500 hover:text-primary text-xs transition-colors">Terms of Service</Link>
+                        <Link to="/cookie-policy" className="text-slate-500 hover:text-primary text-xs transition-colors">Cookie Policy</Link>
                     </div>
                 </div>
             </div>

@@ -11,6 +11,9 @@ import About from './pages/About'
 import Contact from './pages/Contact'
 import Blog from './pages/Blog'
 import BlogPost from './pages/BlogPost'
+import PrivacyPolicy from './pages/PrivacyPolicy'
+import TermsOfService from './pages/TermsOfService'
+import CookiePolicy from './pages/CookiePolicy'
 import WhatsAppButton from './components/WhatsAppButton'
 import ScrollToTop from './components/ScrollToTop'
 import ScrollToTopButton from './components/ScrollToTopButton'
@@ -63,14 +66,17 @@ function App() {
                   <Navbar />
                   <main>
                     <Routes>
-                      <Route path="/seo-services" element={<SeoServices />} />
-                      <Route path="/smo-services" element={<SmoServices />} />
-                      <Route path="/smm-services" element={<SmmServices />} />
-                      <Route path="/ppc-services" element={<PpcServices />} />
+                      <Route path="/services/Search-Engine-Optimization" element={<SeoServices />} />
+                      <Route path="/services/Social-Media-Optimization" element={<SmoServices />} />
+                      <Route path="/services/Social-Media-Marketing" element={<SmmServices />} />
+                      <Route path="/services/Pay-Per-Click-Advertising" element={<PpcServices />} />
                       <Route path="/about" element={<About />} />
                       <Route path="/contact" element={<Contact />} />
                       <Route path="/blog" element={<Blog />} />
                       <Route path="/blog/:id" element={<BlogPost />} />
+                      <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                      <Route path="/terms-of-service" element={<TermsOfService />} />
+                      <Route path="/cookie-policy" element={<CookiePolicy />} />
                     </Routes>
                   </main>
                   <Footer />

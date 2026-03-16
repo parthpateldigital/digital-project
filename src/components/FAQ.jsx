@@ -18,6 +18,22 @@ const faqs = [
     {
         question: "How do you track the success of campaigns?",
         answer: "We use advanced tracking tools like Google Analytics 4, Meta Pixel, and Search Console. You'll receive monthly reports with clear data on traffic, leads, and ROI."
+    },
+    {
+        question: "What is the difference between SMM and SMO?",
+        answer: "SMO (Social Media Optimization) focuses on building your organic presence and profile authority, while SMM (Social Media Marketing) involves paid advertising and promotional campaigns to scale reach rapidly."
+    },
+    {
+        question: "Why is content marketing important?",
+        answer: "Content marketing builds trust and authority. By providing value to your audience through blogs, videos, and guides, you establish your expertise and improve your organic search rankings."
+    },
+    {
+        question: "Do I need a large budget for PPC advertising?",
+        answer: "Not necessarily. We can start with a modest budget and scale up as we see positive results. We optimize every rupee to ensure the highest possible Return on Ad Spend (ROAS)."
+    },
+    {
+        question: "Can you help with brand identity and logo design?",
+        answer: "Yes, we offer complete digital branding services, including logo design, brand voice development, and visual identity to ensure your brand looks premium across all platforms."
     }
 ]
 
@@ -58,14 +74,15 @@ const FAQItem = ({ faq, isOpen, toggle }) => {
     )
 }
 
-const FAQ = () => {
+const FAQ = ({ limit = 6 }) => {
     const [openIndex, setOpenIndex] = useState(0)
+    const displayFaqs = faqs.slice(0, limit);
 
     // AEO/GEO: FAQ Schema Structured Data
     const faqSchema = {
         "@context": "https://schema.org",
         "@type": "FAQPage",
-        "mainEntity": faqs.map(faq => ({
+        "mainEntity": displayFaqs.map(faq => ({
             "@type": "Question",
             "name": faq.question,
             "acceptedAnswer": {
@@ -76,18 +93,18 @@ const FAQ = () => {
     }
 
     return (
-        <section className="py-10 bg-dark">
+        <section className="py-20 bg-dark">
             <script type="application/ld+json">
                 {JSON.stringify(faqSchema)}
             </script>
             <div className="container mx-auto px-4 md:px-6">
-                <div className="text-center mb-12">
-                    <h2 className="text-3xl md:text-5xl font-bold text-white mb-2 uppercase tracking-tight">FAQ</h2>
-                    <p className="text-slate-400 text-sm">Common questions about our digital marketing process.</p>
+                <div className="text-center mb-16">
+                    <h2 className="text-3xl md:text-5xl font-black text-white mb-4 uppercase tracking-tight">FA<span className="text-gradient">Q</span></h2>
+                    <p className="text-slate-400 text-lg">Common questions about our digital marketing process.</p>
                 </div>
 
                 <div className="max-w-3xl mx-auto">
-                    {faqs.map((faq, i) => (
+                    {displayFaqs.map((faq, i) => (
                         <FAQItem
                             key={i}
                             faq={faq}

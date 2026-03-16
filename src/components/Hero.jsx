@@ -5,7 +5,15 @@ import { ArrowRight, Star, Sparkles, Zap, TrendingUp } from 'lucide-react'
 
 const Hero = () => {
     return (
-        <section className="relative pt-24 pb-8 md:pt-36 md:pb-12 overflow-hidden bg-slate-950">
+        <section
+            className="relative pt-24 pb-8 md:pt-36 md:pb-12 overflow-hidden bg-slate-950"
+            style={{
+                backgroundImage: "linear-gradient(to right, rgba(2, 6, 23, 0.95) 0%, rgba(2, 6, 23, 0.6) 40%, rgba(2, 6, 23, 0.1) 100%), url('/images/hero-digital-marketing.jpg')",
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundAttachment: 'fixed'
+            }}
+        >
             {/* Cleaner Background */}
             <div className="absolute top-0 left-0 w-full h-full pointer-events-none select-none">
                 <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-primary/10 rounded-full blur-[120px]" />
@@ -86,6 +94,12 @@ const Hero = () => {
 
                             <Link
                                 to="/#services"
+                                onClick={(e) => {
+                                    if (window.location.pathname === '/') {
+                                        e.preventDefault();
+                                        document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+                                    }
+                                }}
                                 className="bg-white/5 hover:bg-white/10 border border-white/10 px-8 py-4 rounded-xl text-lg font-bold transition-all text-white flex items-center justify-center gap-3 w-full sm:w-auto"
                             >
                                 <span>View Our Services</span>
@@ -123,24 +137,12 @@ const Hero = () => {
                         >
                             <div className="relative p-2 rounded-3xl border border-white/10 bg-white/5 shadow-2xl overflow-hidden">
                                 <img
-                                    src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200"
-                                    alt="Marketing Insights Dashboard"
+                                    src="/images/hero-digital-marketing.jpg"
+                                    alt="Digital Marketing Features"
                                     className="rounded-2xl w-full aspect-[4/5] object-cover"
                                 />
 
-                                <div className="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-slate-950/90 to-transparent">
-                                    <div className="bg-white/10 backdrop-blur-md border border-white/10 p-4 rounded-xl flex items-center justify-between">
-                                        <div className="flex items-center gap-3">
-                                            <div className="p-2 bg-green-500/20 rounded-lg">
-                                                <TrendingUp className="text-green-400" size={16} />
-                                            </div>
-                                            <div>
-                                                <div className="text-[10px] text-slate-400 uppercase font-bold tracking-widest">Performance</div>
-                                                <div className="text-white font-bold text-sm">+245.8% Growth</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+
                             </div>
                         </motion.div>
                     </div>

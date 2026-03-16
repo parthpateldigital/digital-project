@@ -29,10 +29,10 @@ const Navbar = () => {
             name: 'Services',
             path: '/#services',
             dropdown: [
-                { name: 'SEO (Search Engine Optimization)', path: '/seo-services' },
-                { name: 'SMO (Social Media Optimization)', path: '/smo-services' },
-                { name: 'SMM (Social Media Marketing)', path: '/smm-services' },
-                { name: 'PPC (Pay Per Click Advertising)', path: '/ppc-services' },
+                { name: 'SEO (Search Engine Optimization)', path: '/services/Search-Engine-Optimization' },
+                { name: 'SMO (Social Media Optimization)', path: '/services/Social-Media-Optimization' },
+                { name: 'SMM (Social Media Marketing)', path: '/services/Social-Media-Marketing' },
+                { name: 'PPC (Pay Per Click Advertising)', path: '/services/Pay-Per-Click-Advertising' },
             ]
         },
         { name: 'About Us', path: '/about' },
@@ -44,29 +44,16 @@ const Navbar = () => {
         <nav
             className={`fixed top-0 left-0 w-full z-[100] transition-all duration-500 ${scrolled
                 ? 'bg-slate-950/80 backdrop-blur-xl py-4 shadow-[0_10px_40px_rgba(0,0,0,0.5)] border-b border-white/10'
-                : 'bg-transparent py-8'
+                : 'bg-gradient-to-b from-slate-950/80 to-transparent py-8'
                 }`}
         >
             <div className="container mx-auto px-4 md:px-6 flex justify-between items-center">
-                <Link to="/" className="group flex items-center gap-4">
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        className="relative"
-                    >
-                        <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl flex items-center justify-center -rotate-3 group-hover:rotate-12 transition-all duration-500 shadow-[0_10px_30px_-5px_rgba(59,130,246,0.6)]">
-                            <Sparkles className="text-white fill-white/20" size={24} />
-                        </div>
-                        <div className="absolute inset-0 bg-primary/30 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
-                    </motion.div>
-                    <div className="flex flex-col">
-                        <span className="text-xl md:text-2xl font-black tracking-tighter text-white uppercase leading-none">
-                            Digital <span className="text-primary italic">Parth</span>
-                        </span>
-                        <span className="text-[10px] text-slate-500 font-black tracking-[0.4em] uppercase mt-1.5 opacity-80">
-                            Marketing Agency
-                        </span>
-                    </div>
+                <Link to="/" className="flex items-center">
+                    <img
+                        src="/images/logo.png"
+                        alt="Digital Parth Patel Logo"
+                        className="h-20 md:h-24 w-auto object-contain invert hue-rotate-180 brightness-125 mix-blend-screen"
+                    />
                 </Link>
 
                 {/* Desktop Links */}

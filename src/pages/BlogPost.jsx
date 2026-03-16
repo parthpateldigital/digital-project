@@ -3,12 +3,33 @@ import { useParams, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Calendar, User, ArrowLeft, Share2, MessageSquare } from 'lucide-react'
 import { useBlog } from '../context/BlogContext'
+import { useToast } from '../admin/context/ToastContext'
 import FinalCTA from '../components/FinalCTA'
 
 const BlogPost = () => {
     const { id } = useParams()
     const { posts } = useBlog()
+    const addToast = useToast()
     const post = posts.find(p => p.id === id)
+
+    const handleShare = async () => {
+        const shareData = {
+            title: post.title,
+            text: post.excerpt,
+            url: window.location.href,
+        }
+
+        try {
+            if (navigator.share) {
+                await navigator.share(shareData)
+            } else {
+                await navigator.clipboard.writeText(window.location.href)
+                addToast('Link copied to clipboard!', 'success')
+            }
+        } catch (err) {
+            console.error('Error sharing:', err)
+        }
+    }
 
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -83,7 +104,7 @@ const BlogPost = () => {
                     <div className="lg:w-3/4">
                         <div className="prose prose-invert prose-lg max-w-none">
                             <div className="text-slate-300 leading-relaxed space-y-8 whitespace-pre-line text-lg md:text-xl font-light">
-                                {post.content}
+                                {post.content?.replace(/###\s?/g, '')}
                             </div>
                         </div>
 
@@ -91,7 +112,10 @@ const BlogPost = () => {
                             <div className="flex items-center gap-4">
                                 <span className="text-white font-bold uppercase tracking-widest text-xs">Share:</span>
                                 <div className="flex gap-4">
-                                    <button className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:bg-primary hover:text-white transition-all cursor-pointer">
+                                    <button
+                                        onClick={handleShare}
+                                        className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:bg-primary hover:text-white transition-all cursor-pointer"
+                                    >
                                         <Share2 size={18} />
                                     </button>
                                 </div>

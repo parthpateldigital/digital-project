@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { Calendar, User, ArrowRight, Search as SearchIcon } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { useBlog } from '../context/BlogContext'
+import FAQ from '../components/FAQ'
 
 const Blog = () => {
     const { posts } = useBlog();
@@ -125,6 +126,7 @@ const Blog = () => {
                     )}
                 </div>
             </section>
+            <FAQ />
         </div>
     )
 }

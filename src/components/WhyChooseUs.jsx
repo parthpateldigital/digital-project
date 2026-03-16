@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Target, DollarSign, Users, Headset } from 'lucide-react'
+import { Target, TrendingUp, Users, Headset } from 'lucide-react'
 
 const features = [
     {
@@ -9,9 +9,9 @@ const features = [
         icon: Target
     },
     {
-        title: 'Affordable pricing',
-        desc: 'Premium marketing services tailored to fit your budget without compromising quality.',
-        icon: DollarSign
+        title: 'Scalable Solutions',
+        desc: 'Customized digital strategies designed to scale alongside your business growth.',
+        icon: TrendingUp
     },
     {
         title: 'Expert team',
@@ -37,7 +37,7 @@ const WhyChooseUs = () => {
                         className="lg:w-1/2 space-y-6"
                     >
                         <h2 className="text-3xl md:text-5xl font-bold text-white uppercase tracking-tight">
-                            Why Choose <br /> <span className="text-gradient italic">Parth Patel?</span>
+                            Why Choose <br /> <span className="text-gradient italic">Digital Parth Patel?</span>
                         </h2>
                         <p className="text-slate-400 text-base leading-relaxed">
                             We don't just provide services; we build partnerships. Our approach is rooted in data, fueled by creativity, and focused on your bottom line.
@@ -70,8 +70,8 @@ const WhyChooseUs = () => {
                     >
                         <div className="rounded-2xl overflow-hidden border border-white/10 p-1">
                             <img
-                                src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1200"
-                                alt="Our Team Strategy"
+                                src="/images/why-choose-us.png"
+                                alt="Digital Parth Patel Strategy"
                                 className="rounded-xl w-full"
                                 loading="lazy"
                             />

@@ -11,7 +11,7 @@ const services = [
         icon: Search,
         color: 'from-blue-600/20 to-sky-400/20',
         textColor: 'text-blue-400',
-        path: '/seo-services',
+        path: '/services/Search-Engine-Optimization',
         highlights: ['Keyword Research', 'Technical Audit', 'Backlinks']
     },
     {
@@ -21,7 +21,7 @@ const services = [
         icon: Share2,
         color: 'from-purple-600/20 to-pink-400/20',
         textColor: 'text-purple-400',
-        path: '/smo-services',
+        path: '/services/Social-Media-Optimization',
         highlights: ['Profile Audit', 'Engagement Strategy', 'Visual Branding']
     },
     {
@@ -31,7 +31,7 @@ const services = [
         icon: TrendingUp,
         color: 'from-pink-600/20 to-rose-400/20',
         textColor: 'text-pink-400',
-        path: '/smm-services',
+        path: '/services/Social-Media-Marketing',
         highlights: ['Viral Content', 'Ad Campaigns', 'Influencer Collab']
     },
     {
@@ -41,7 +41,7 @@ const services = [
         icon: BarChart3,
         color: 'from-emerald-600/20 to-teal-400/20',
         textColor: 'text-emerald-400',
-        path: '/ppc-services',
+        path: '/services/Pay-Per-Click-Advertising',
         highlights: ['Google Search Ads', 'Retargeting', 'ROI Tracking']
     }
 ]
@@ -53,9 +53,9 @@ const ServiceCard = ({ service, index }) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: index * 0.15, ease: "easeOut" }}
-            className="group relative"
+            className="group relative h-full"
         >
-            <div className="glass-card p-10 rounded-[2.5rem] h-full relative overflow-hidden">
+            <Link to={service.path} className="glass-card block p-10 rounded-[2.5rem] h-full relative overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/20">
                 {/* Dynamic Icon */}
                 <div className={`w-16 h-16 bg-gradient-to-br ${service.color} rounded-2xl flex items-center justify-center ${service.textColor} mb-8 transition-all duration-500 group-hover:rotate-[10deg] group-hover:scale-110 shadow-lg`}>
                     <service.icon size={28} />
@@ -65,7 +65,7 @@ const ServiceCard = ({ service, index }) => {
                     <div className="text-[10px] text-primary font-black uppercase tracking-[0.2em] opacity-70">
                         {service.shortTitle}
                     </div>
-                    <h3 className="text-2xl font-bold text-white leading-tight">
+                    <h3 className="text-2xl font-bold text-white leading-tight transition-colors duration-300 group-hover:text-primary">
                         {service.title}
                     </h3>
                     <p className="text-slate-400 text-sm leading-relaxed font-light">
@@ -74,18 +74,17 @@ const ServiceCard = ({ service, index }) => {
                 </div>
 
                 <div className="mt-8 pt-6 border-t border-white/5">
-                    <Link
-                        to={service.path}
-                        className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-white hover:text-primary transition-all group/link"
+                    <div
+                        className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-white group-hover:text-primary transition-all"
                     >
                         <span className="relative">
                             Read More
-                            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover/link:w-full" />
+                            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
                         </span>
-                        <ArrowUpRight size={14} className="group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform" />
-                    </Link>
+                        <ArrowUpRight size={14} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                    </div>
                 </div>
-            </div>
+            </Link>
         </motion.div>
     )
 }
